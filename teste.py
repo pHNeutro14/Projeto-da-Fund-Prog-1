@@ -3,7 +3,7 @@ while True:
     print("1 - Calcular Notas")
     print("2 - Verificar Notas")
     print("3 - Exibir boletim")
-    print("0 - Encerrar Programa")
+    print("0 - Encerrar Programa \n")
 
     try:
         escolha = int(input("> "))
