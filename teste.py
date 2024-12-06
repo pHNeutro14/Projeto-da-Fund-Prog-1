@@ -1,4 +1,4 @@
-def adicionar_alunos(lista_alunos): 
+def adicionar_alunos(lista_alunos): #função para adicionar os alunos na variavel lista_alunos
     while True: 
         nome_aluno = input("Insira o nome do aluno - 0 para encerrar e voltar ao menu: \n> ")
         if nome_aluno == "0":
@@ -6,8 +6,8 @@ def adicionar_alunos(lista_alunos):
         else:
             lista_alunos.append(nome_aluno)
 
-def exibir_alunos(lista_alunos):
-    if not lista_alunos:
+def exibir_alunos(lista_alunos): #função para exibir os alunos
+    if not lista_alunos: # caso a lista esteja vazia vai exibir este print abaixo
         print("Não existe alunos cadastrados!!\n")
     else: 
         for i in lista_alunos:
