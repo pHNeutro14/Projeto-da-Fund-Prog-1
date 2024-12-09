@@ -23,14 +23,14 @@ def adicionar_notas(lista_alunos):
                 nota = float(input("Insira a nota do aluno, para encerrar digite um número negativo\n>"))
                 if nota >= 0:
                     lista_alunos[nome].append(nota)
-                    print("Esta no caminho certo")
+                    print(f"Aluno: {nome} - - Nota: {nota}")
                 else:
                     break
             except ValueError:
                 print("Insira um número")
 
 def exibir_notas(lista_alunos):
-    for nome_aluno, nota_aluno in lista_alunos:
+    for nome_aluno, nota_aluno in lista_alunos.items():
         print(nome_aluno, nota_aluno)
 
 lista_alunos = {} #variável global para exibir e adicionar os alunos
@@ -58,7 +58,7 @@ while True: #Menu criado para que o usuário possa interagir mais de uma vez at�
             adicionar_notas(lista_alunos)
         elif escolha == 4:
             print("Opção 4 escolhida\n")
-            exibir_notas()
+            exibir_notas(lista_alunos)
         elif escolha == 5:
             print("Opção 5 escolhida\n")
         elif escolha == 0:
