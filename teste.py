@@ -30,14 +30,15 @@ def adicionar_notas(lista_alunos):
                 print("Insira um número válido")
 
 def exibir_notas(lista_alunos):
-    nome_aluno = input("Insira o nome do aluno para exibir a nota: \n>").upper()
-    if nome_aluno not in lista_alunos:
-        print("Aluno não encontrado")
-    else:
-        nota_aluno = lista_alunos[nome_aluno]
-        print(f"Aluno: {nome_aluno} - Notas: {nota_aluno}")
-    #for nome_aluno, nota_aluno in lista_alunos.items():
-        #print(f"Aluno: {nome_aluno}, - - Nota: {nota_aluno}")
+    while True:
+        nome_aluno = input("Insira o nome do aluno para exibir a nota ou 0 para encerrar \n>").upper()
+        if nome_aluno in lista_alunos:
+            nota_aluno = lista_alunos[nome_aluno]
+            print(f"Aluno: {nome_aluno} - Notas: {nota_aluno}")
+        elif nome_aluno == "0":
+            break
+        else:
+            print("Aluno não encontrado")
 
 def exibir_boletim(lista_alunos):
     if not lista_alunos:
