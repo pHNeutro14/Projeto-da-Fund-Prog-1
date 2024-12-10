@@ -51,6 +51,11 @@ def exibir_boletim(lista_alunos):
             else:
                 print(f"Aluno: {nome} - Não possui notas cadastradas")
 
+def excluir_alunos():
+    nome_aluno = input("Insira o nome do aluno para excluir \n>").upper()
+    if nome_aluno not in lista_alunos:
+        print("Aluno não encontrado")
+
 lista_alunos = {} # Dicionario para exibir e adicionar os alunos acompanhado de suas notas 
 
 while True:  # Menu criado para que o usuário possa interagir mais de uma vez até encerrar
@@ -83,6 +88,7 @@ while True:  # Menu criado para que o usuário possa interagir mais de uma vez a
             exibir_boletim(lista_alunos)
         elif escolha == 6:
             print("Opção 6 escolhida \n")
+            excluir_aluno(lista_alunos)
         elif escolha == 0:
             break
 
