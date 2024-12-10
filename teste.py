@@ -1,6 +1,6 @@
 def adicionar_alunos(lista_alunos):  # função para adicionar os alunos na variável lista_alunos
     while True:
-        nome_aluno = input("Insira o nome do aluno - 0 para encerrar e voltar ao menu: \n> ")
+        nome_aluno = input("Insira o nome do aluno - 0 para encerrar e voltar ao menu: \n> ").upper()
         if nome_aluno == "0":
             break
         else:
@@ -14,24 +14,30 @@ def exibir_alunos(lista_alunos):  # função para exibir os alunos
             print(i)
 
 def adicionar_notas(lista_alunos):
-    nome = input("Insira o nome do aluno que deseja calcular as notas \n>")
-    if nome not in lista_alunos:
+    nome_aluno = input("Insira o nome do aluno que deseja calcular as notas \n>").upper()
+    if nome_aluno not in lista_alunos:
         print("Aluno não encontrado")
     else:
         while True:
             try:
                 nota = float(input("Insira a nota do aluno, para encerrar digite um número negativo\n>"))
                 if nota >= 0:
-                    lista_alunos[nome].append(nota)
-                    print(f"Aluno: {nome} - Nota: {nota}")
+                    lista_alunos[nome_aluno].append(nota)
+                    print(f"Aluno: {nome_aluno} - Nota: {nota}")
                 else:
                     break
             except ValueError:
                 print("Insira um número válido")
 
 def exibir_notas(lista_alunos):
-    for nome_aluno, nota_aluno in lista_alunos.items():
-        print(nome_aluno, nota_aluno)
+    nome_aluno = input("Insira o nome do aluno para exibir a nota: \n>").upper()
+    if nome_aluno not in lista_alunos:
+        print("Aluno não encontrado")
+    else:
+        nota_aluno = lista_alunos[nome_aluno]
+        print(f"Aluno: {nome_aluno} - Notas: {nota_aluno}")
+    #for nome_aluno, nota_aluno in lista_alunos.items():
+        #print(f"Aluno: {nome_aluno}, - - Nota: {nota_aluno}")
 
 def exibir_boletim(lista_alunos):
     if not lista_alunos:
@@ -44,7 +50,7 @@ def exibir_boletim(lista_alunos):
             else:
                 print(f"Aluno: {nome} - Não possui notas cadastradas")
 
-lista_alunos = {}  # variável global para exibir e adicionar os alunos
+lista_alunos = {} # Dicionario para exibir e adicionar os alunos acompanhado de suas notas 
 
 while True:  # Menu criado para que o usuário possa interagir mais de uma vez até encerrar
     print("Selecione a opção: ")
@@ -53,6 +59,7 @@ while True:  # Menu criado para que o usuário possa interagir mais de uma vez a
     print("3 - Adicionar Notas")
     print("4 - Exibir Notas")
     print("5 - Exibir Boletim")
+    print("6 - Excluir Aluno")
     print("0 - Encerrar Programa \n")
 
     try:  # Caso o usuário use um valor diferente de um tipo inteiro, o try vai garantir que o código não encerre e pedir que o usuário digite novamente
@@ -73,6 +80,8 @@ while True:  # Menu criado para que o usuário possa interagir mais de uma vez a
         elif escolha == 5:
             print("Opção 5 escolhida\n")
             exibir_boletim(lista_alunos)
+        elif escolha == 6:
+            print("Opção 6 escolhida \n")
         elif escolha == 0:
             break
 
