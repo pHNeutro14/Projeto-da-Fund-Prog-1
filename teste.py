@@ -1,3 +1,11 @@
+'''Discentes:   Anderson Lucas, 
+                Fabio Oliveira, 
+                Tatieny Dayane, 
+                Pedro Henrique,
+                Rutemberg de Siqueira
+    
+'''
+
 def adicionar_alunos(lista_alunos):  # função para adicionar os alunos na variável lista_alunos
     while True:
         nome_aluno = input("Insira o nome do aluno - 0 para encerrar e voltar ao menu: \n> ").upper()
@@ -20,12 +28,14 @@ def adicionar_notas(lista_alunos):
     else:
         while True:
             try:
-                nota = float(input("Insira a nota do aluno, para encerrar digite um número negativo\n>"))
-                if nota >= 0:
+                nota = float(input("Insira a nota do aluno: - Insira um número negativo para encerrar: \n>"))
+                if nota < 0:
+                    break
+                elif nota >= 0 and nota <= 10:
                     lista_alunos[nome_aluno].append(nota)
                     print(f"Aluno: {nome_aluno} - Nota: {nota}")
                 else:
-                    break
+                    print("Digite uma nota entre 0 e 10")
             except ValueError:
                 print("Insira um número válido")
 
@@ -47,7 +57,21 @@ def exibir_boletim(lista_alunos):
         for nome, notas in lista_alunos.items():
             if notas:
                 media = sum(notas) / len(notas)
-                print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f}")
+                if media == 0:
+                    print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f} - Conceito: E")
+                
+                elif media >= 1 and media <= 3.5:
+                    print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f} - Conceito: D")
+
+                elif media >= 3.6 and media <= 6.0:
+                    print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f} - Conceito: C")
+
+                elif media >= 6.1 and media <= 8.5:
+                    print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f} - Conceito: B")
+
+                elif media >= 8.6 and media <= 10:
+                    print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f} - Conceito: A")
+
             else:
                 print(f"Aluno: {nome} - Não possui notas cadastradas")
 
