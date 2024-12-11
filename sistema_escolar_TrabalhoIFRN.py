@@ -1,10 +1,4 @@
-'''Discentes:   Anderson Lucas, 
-                Fabio Oliveira, 
-                Tatieny Dayane, 
-                Pedro Henrique,
-                Rutemberg de Siqueira
-    
-'''
+'''Discentes:   Anderson Lucas, Fabio Oliveira, Tatieny Dayane, Pedro Henrique, Rutemberg de Siqueira'''
 
 def adicionar_alunos(lista_alunos):  # função para adicionar os alunos na variável lista_alunos
     while True:
@@ -18,28 +12,28 @@ def exibir_alunos(lista_alunos):  # função para exibir os alunos
     if not lista_alunos:  # caso a lista esteja vazia vai exibir este print abaixo
         print("Não existem alunos cadastrados!!\n")
     else:
-        for i in lista_alunos:
+        for i in lista_alunos: 
             print(i)
 
-def adicionar_notas(lista_alunos):
+def adicionar_notas(lista_alunos): 
     nome_aluno = input("Insira o nome do aluno que deseja calcular as notas \n>").upper()
     if nome_aluno not in lista_alunos:
         print("Aluno não encontrado")
     else:
-        while True:
+        while True: #Aqui ele vai entrar em uma repetição para inserir as notas dos alunos
             try:
                 nota = float(input("Insira a nota do aluno: - Insira um número negativo para encerrar: \n>"))
                 if nota < 0:
                     break
-                elif nota >= 0 and nota <= 10:
+                elif nota >= 0 and nota <= 10: #nesse elif vai permitir que apenas as notas entre 0 e 10 sejam inseridas na lista
                     lista_alunos[nome_aluno].append(nota)
                     print(f"Aluno: {nome_aluno} - Nota: {nota}")
-                else:
+                else: 
                     print("Digite uma nota entre 0 e 10")
-            except ValueError:
+            except ValueError: #caso o usuário insira um texto vai entrar nesse except
                 print("Insira um número válido")
 
-def exibir_notas(lista_alunos):
+def exibir_notas(lista_alunos): #nesta função vai exibir as notas, acessando a chave do dicionário que é um aluno e seu atributo que é uma lista de notas
     while True:
         nome_aluno = input("Insira o nome do aluno para exibir a nota ou 0 para encerrar \n>").upper()
         if nome_aluno in lista_alunos:
@@ -50,7 +44,7 @@ def exibir_notas(lista_alunos):
         else:
             print("Aluno não encontrado")
 
-def exibir_boletim(lista_alunos):
+def exibir_boletim(lista_alunos): #aqui vai listar o aluno, suas notas e a sua média acompanhado do conceito
     if not lista_alunos:
         print("Não existem alunos cadastrados para exibir boletins.\n")
     else:
@@ -72,10 +66,10 @@ def exibir_boletim(lista_alunos):
                 elif media >= 8.6 and media <= 10:
                     print(f"Aluno: {nome} - Notas: {notas} - Média: {media:.2f} - Conceito: A")
 
-            else:
+            else: # caso não tenha notas ele vai mostrar apenas o nome e informar que não possui notas
                 print(f"Aluno: {nome} - Não possui notas cadastradas")
 
-def excluir_alunos(lista_alunos):
+def excluir_alunos(lista_alunos): #nessa função vai excluir o aluno do dicionário
     while True:
         nome_aluno = input("Insira o nome do aluno para excluir - 0 para encerrar \n>").upper()
         if nome_aluno == "0":
